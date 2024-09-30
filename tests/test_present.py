@@ -3,7 +3,12 @@ from lib.present import *
 
 def test_present():
     gift = Present()
+    gift2 = Present()
     gift.wrap("laptop")
+    wrapped = gift2.wrap("phone")
+    assert wrapped == None
+    unwrapped = gift.unwrap()
+    assert unwrapped == "laptop"
     with pytest.raises(Exception) as e:
         gift.wrap("laptop")
     error_message = str(e.value)
